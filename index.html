@@ -4,11 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>我的导航</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <header></header>
-  <main></main>
+  <main>
+    <div id="nav" class="navBar">
+    </div>
+  </main>
   <footer></footer>
 </body>
+<script>
+  // alert(1);
+  var navHash={
+    '0':['q','w','e','r','t','y','u','i','o','p'],
+    '1':['a','s','d','f','g','h','j','k','l'],
+    '2':['z','x','c','v','b','n','m'],
+    'length':3
+  }
+  var nav=document.getElementById('nav');
+  var n=0;
+
+  while(n<navHash['length']){
+    var i=0;    
+    var divX=document.createElement('div');
+    // alert(2);
+    while(i<navHash[n].length){
+      var kbdX=document.createElement('kbd');
+      kbdX.textContent=navHash[n][i];
+      divX.appendChild(kbdX);
+      i++;
+    }
+    nav.appendChild(divX);
+    n++;
+  }
+</script>
 </html>

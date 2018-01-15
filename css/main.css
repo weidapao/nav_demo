@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.navBar{
+  text-align: center;
+}
+kbd{
+  font-weight: bold;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 1px solid red;
+  padding: 10px;
+  margin: 4px 2px;
+}
