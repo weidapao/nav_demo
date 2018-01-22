@@ -12,6 +12,8 @@
   <main>
     <div id="nav" class="navBar">
     </div>
+    <br>
+    <br>
   </main>
   <footer></footer>
 </body>
@@ -23,6 +25,16 @@
     '2':['z','x','c','v','b','n','m'],
     'length':3
   }
+  var webHash={
+    'q':'www.qq.com',
+    'z':'www.zhihu.com'
+  }
+  var currentHash=JSON.parse(localStorage.getItem('zzz') || 'null');
+  // alert(currentHash);
+  if(currentHash) {
+    // alert(currentHash);
+    webHash=currentHash;
+  }
   var nav=document.getElementById('nav');
   var n=0;
 
@@ -32,12 +44,29 @@
     // alert(2);
     while(i<navHash[n].length){
       var kbdX=document.createElement('kbd');
+      var buttonX=document.createElement('button');
+      buttonX.id=navHash[n][i];
+      // buttonX.textContent='编辑';
+      buttonX.onclick=function(e){
+        console.log(e.target);
+        var x=prompt('请输入你想去的网址');
+        webHash[e.target.id]=x;
+        localStorage.setItem('zzz',JSON.stringify(webHash));
+      }
       kbdX.textContent=navHash[n][i];
+      kbdX.className='key';
+      divX.className='row';
+      kbdX.appendChild(buttonX);
       divX.appendChild(kbdX);
       i++;
     }
     nav.appendChild(divX);
     n++;
+  }
+  document.onkeypress=function(e){
+    console.log(e);
+    var website=webHash[e.key];
+    window.open('http://'+website,'_blank');
   }
 </script>
 </html>
