@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+body{
+  background: grey url(../wall.jpg) no-repeat center center;
+}
 main {
   text-align: center;
   display: flex;
@@ -13,7 +16,8 @@ main {
   display: inline-block;
 }
 .navBar{
-  text-align: center;
+  background: rgba(255,255,255,0.2);
+	border-radius: 10px;
 }
 kbd {
   border: 1px solid red;
@@ -23,6 +27,8 @@ kbd {
   text-transform: uppercase;
   position: relative;
 }
+#nav> div:nth-child(2){margin-left: -22px; }
+#nav> div:nth-child(3){margin-left: -80px; }
 .key {
   width: 50px;
   height: 40px;
@@ -41,3 +47,17 @@ kbd {
 .row .key {
   margin: 0 10px;
 }
+.text{
+  display: inline-block;
+  position: absolute;
+  left: 4px;
+  top: 2px;
+}
+kbd > button{
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+kbd:hover > button{display: inline-block; }
+.key img{width: 16px; height: 16px; position: absolute; left: 4px; bottom: 2px;}

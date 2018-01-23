@@ -29,12 +29,13 @@
     'q':'www.qq.com',
     'z':'www.zhihu.com'
   }
-  var currentHash=JSON.parse(localStorage.getItem('zzz') || 'null');
-  // alert(currentHash);
+  var currentHash=JSON.parse(localStorage.getItem('bbb') || 'null');
   if(currentHash) {
     // alert(currentHash);
     webHash=currentHash;
+    
   }
+  // alert(webHash);
   var nav=document.getElementById('nav');
   var n=0;
 
@@ -45,17 +46,30 @@
     while(i<navHash[n].length){
       var kbdX=document.createElement('kbd');
       var buttonX=document.createElement('button');
+      var spanX=document.createElement('span');
+      var imgX=document.createElement('img');
+      var webLink=webHash[navHash[n][i]];
+      if(webLink){
+        imgX.src='http://'+webLink+'/favicon.ico';
+      }else{
+        imgX.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
+      }
+      
       buttonX.id=navHash[n][i];
-      // buttonX.textContent='编辑';
+      buttonX.textContent='编辑';
       buttonX.onclick=function(e){
         console.log(e.target);
         var x=prompt('请输入你想去的网址');
         webHash[e.target.id]=x;
-        localStorage.setItem('zzz',JSON.stringify(webHash));
+        localStorage.setItem('bbb',JSON.stringify(webHash));
+        alert(1);
       }
-      kbdX.textContent=navHash[n][i];
+      spanX.textContent=navHash[n][i];
+      spanX.className='text';
       kbdX.className='key';
       divX.className='row';
+      kbdX.appendChild(spanX);
+      kbdX.appendChild(imgX);
       kbdX.appendChild(buttonX);
       divX.appendChild(kbdX);
       i++;
