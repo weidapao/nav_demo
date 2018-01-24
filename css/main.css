@@ -3,61 +3,61 @@
   padding: 0;
 }
 body{
-  background: grey url(../wall.jpg) no-repeat center center;
+  background: gray url(../wall.jpg) center center;
 }
-main {
-  text-align: center;
+main{
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 100vh;
 }
-#nav {
-  display: inline-block;
-}
-.navBar{
-  background: rgba(255,255,255,0.2);
-	border-radius: 10px;
-}
-kbd {
+kbd{
   border: 1px solid red;
-  width: 4em;
-  height: 4em;
   display: inline-block;
-  text-transform: uppercase;
-  position: relative;
+  margin:0 10px; 
 }
-#nav> div:nth-child(2){margin-left: -22px; }
-#nav> div:nth-child(3){margin-left: -80px; }
-.key {
-  width: 50px;
-  height: 40px;
-  background: linear-gradient(to bottom, #292929 0%,#111111 100%);
-  border: 1px solid #373737;
-  color: #C5C5C5;
-  border-radius: 6px;
-  box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808;
-  position: relative;
-  font-size: 16px;
-  font-family: Helvetica;
+#nav{
+  background: rgba(255,255,255,0.2);
+  display: inline-block;
+  border-radius: 8px;
 }
-.row {
+.row{
   margin: 20px;
 }
-.row .key {
-  margin: 0 10px;
+#nav > div:nth-child(2){
+  margin-left: -22px;
 }
-.text{
-  display: inline-block;
-  position: absolute;
-  left: 4px;
+#nav > div:nth-child(3){
+  margin-left: -80px;
+}
+.key{
+  width: 50px;
+  height: 40px;
+  border: 1px solid #373737;
+  background: linear-gradient(to bottom, #292929 0%,#111111 100%);
+  color: #BBC5C5;
+  font-size: 16px;
+  font-family: Helvetica;
+  position: relative;
+  box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.key span{
   top: 2px;
-}
-kbd > button{
-  display: none;
+  left: 4px;
   position: absolute;
+}
+
+.key button{
   bottom: 0;
   right: 0;
+  position: absolute;
+  display: none;
 }
-kbd:hover > button{display: inline-block; }
+.key:hover button{
+  display: inline-block;
+}
 .key img{width: 16px; height: 16px; position: absolute; left: 4px; bottom: 2px;}

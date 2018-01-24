@@ -48,11 +48,15 @@
       var buttonX=document.createElement('button');
       var spanX=document.createElement('span');
       var imgX=document.createElement('img');
+      imgX.id=navHash[n][i];
       var webLink=webHash[navHash[n][i]];
       if(webLink){
         imgX.src='http://'+webLink+'/favicon.ico';
       }else{
-        imgX.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
+        imgX.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png';
+      }
+      imgX.onerror=function(e){
+        e.target.src='//i.loli.net/2017/11/10/5a05afbc5e183.png';
       }
       
       buttonX.id=navHash[n][i];
@@ -62,6 +66,18 @@
         var x=prompt('请输入你想去的网址');
         webHash[e.target.id]=x;
         localStorage.setItem('bbb',JSON.stringify(webHash));
+        for (k in webHash) {
+          var imgActive=document.getElementById(k);
+          if(webHash[k]){
+            imgActive.src='http://'+webHash[k]+'/favicon.ico';
+          }else{
+            imgActive.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png';
+          }
+          imgActive.onerror=function(e){
+            e.target.src='//i.loli.net/2017/11/10/5a05afbc5e183.png';
+          }
+          
+        }
         // alert(1);
       }
       spanX.textContent=navHash[n][i];
